@@ -28,13 +28,13 @@ class Tarea3Bloc extends Bloc<Tarea3Event, Tarea3State> {
     } else if (event is SkipEvent) {
       index++;
       if (index < listSize)
-        yield JuegoNextState(
+        yield JuegoIniciadoState(
             palabra: list1[index], titulo: 'The word is ...', contador: count);
     } else if (event is GotEvent) {
       if (list1[index] == list2[index]) count++;
       index++;
       if (index < listSize)
-        yield JuegoNextState(
+        yield JuegoIniciadoState(
             palabra: list1[index], titulo: 'The word is ...', contador: count);
       else
         yield JuegoEndState(titulo: 'You scored!', contador: count);
