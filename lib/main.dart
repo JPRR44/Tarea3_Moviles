@@ -93,7 +93,7 @@ class MyApp extends StatelessWidget {
                         mainAxisSize: MainAxisSize.min,
                         children: [
                           Expanded(
-                              flex: 4,
+                              flex: 2,
                               child: Column(
                                 children: [
                                   SizedBox(
@@ -119,7 +119,10 @@ class MyApp extends StatelessWidget {
                                         BlocProvider.of<Tarea3Bloc>(context)
                                             .add(StartEvent());
                                       },
-                                      child: Text('PLAY AGAIN'),
+                                      child: Text(
+                                        'PLAY AGAIN',
+                                        style: TextStyle(color: Colors.white),
+                                      ),
                                       color: Colors.green[500],
                                     ),
                                   ],
@@ -164,7 +167,10 @@ class MyApp extends StatelessWidget {
                                           BlocProvider.of<Tarea3Bloc>(context)
                                               .add(StartEvent());
                                         },
-                                        child: Text('PLAY'),
+                                        child: Text(
+                                          'PLAY',
+                                          style: TextStyle(color: Colors.white),
+                                        ),
                                         color: Colors.green[500],
                                       ),
                                     ],
