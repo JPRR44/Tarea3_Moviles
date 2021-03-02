@@ -11,6 +11,7 @@ class MyApp extends StatelessWidget {
       title: 'Guess the Word ',
       home: Scaffold(
           appBar: AppBar(
+            backgroundColor: Colors.green[600],
             title: Text('Guess the Word!'),
           ),
           body: BlocProvider(
@@ -28,14 +29,16 @@ class MyApp extends StatelessWidget {
                         mainAxisSize: MainAxisSize.min,
                         children: [
                           Expanded(
-                              flex: 2,
+                              flex: 4,
                               child: Column(
+                                mainAxisSize: MainAxisSize.min,
                                 children: [
+                                  SizedBox(height: 240),
                                   Text(state.titulo),
                                   SizedBox(height: 40),
                                   Text(
                                     state.palabra,
-                                    style: TextStyle(fontSize: 20),
+                                    style: TextStyle(fontSize: 30),
                                   ),
                                 ],
                               )),
@@ -44,7 +47,11 @@ class MyApp extends StatelessWidget {
                               child: Column(
                                 children: [
                                   Text(state.contador.toString()),
+                                  SizedBox(
+                                    height: 20,
+                                  ),
                                   Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
                                       MaterialButton(
                                         onPressed: () {
@@ -52,14 +59,16 @@ class MyApp extends StatelessWidget {
                                               .add(SkipEvent());
                                         },
                                         child: Text('SKIP'),
-                                        color: Colors.green[500],
                                       ),
                                       MaterialButton(
                                         onPressed: () {
                                           BlocProvider.of<Tarea3Bloc>(context)
                                               .add(GotEvent());
                                         },
-                                        child: Text('GOT IT'),
+                                        child: Text(
+                                          'GOT IT',
+                                          style: TextStyle(color: Colors.white),
+                                        ),
                                         color: Colors.green[500],
                                       ),
                                       MaterialButton(
@@ -68,7 +77,6 @@ class MyApp extends StatelessWidget {
                                               .add(EndEvent());
                                         },
                                         child: Text('END GAME'),
-                                        color: Colors.green[500],
                                       ),
                                     ],
                                   ),
@@ -85,28 +93,40 @@ class MyApp extends StatelessWidget {
                         mainAxisSize: MainAxisSize.min,
                         children: [
                           Expanded(
-                              flex: 2,
+                              flex: 4,
                               child: Column(
                                 children: [
+                                  SizedBox(
+                                    height: 240,
+                                  ),
                                   Text(state.titulo),
                                   SizedBox(height: 40),
                                   Text(
                                     state.contador.toString(),
-                                    style: TextStyle(fontSize: 20),
+                                    style: TextStyle(fontSize: 30),
                                   ),
                                 ],
                               )),
                           Expanded(
                             flex: 1,
-                            child: MaterialButton(
-                              onPressed: () {
-                                BlocProvider.of<Tarea3Bloc>(context)
-                                    .add(StartEvent());
-                              },
-                              child: Text('PLAY AGAIN'),
-                              color: Colors.green[500],
+                            child: Column(
+                              children: [
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    MaterialButton(
+                                      onPressed: () {
+                                        BlocProvider.of<Tarea3Bloc>(context)
+                                            .add(StartEvent());
+                                      },
+                                      child: Text('PLAY AGAIN'),
+                                      color: Colors.green[500],
+                                    ),
+                                  ],
+                                )
+                              ],
                             ),
-                          )
+                          ),
                         ],
                       ),
                     ),
@@ -118,28 +138,39 @@ class MyApp extends StatelessWidget {
                         mainAxisSize: MainAxisSize.min,
                         children: [
                           Expanded(
-                              flex: 2,
+                              flex: 4,
                               child: Column(
                                 children: [
+                                  SizedBox(
+                                    height: 240,
+                                  ),
                                   Text('Get ready to'),
                                   SizedBox(height: 40),
                                   Text(
                                     'Guess the word!',
-                                    style: TextStyle(fontSize: 20),
+                                    style: TextStyle(fontSize: 30),
                                   ),
                                 ],
                               )),
                           Expanded(
-                            flex: 1,
-                            child: MaterialButton(
-                              onPressed: () {
-                                BlocProvider.of<Tarea3Bloc>(context)
-                                    .add(StartEvent());
-                              },
-                              child: Text('PLAY'),
-                              color: Colors.green[500],
-                            ),
-                          )
+                              flex: 1,
+                              child: Column(
+                                children: [
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      MaterialButton(
+                                        onPressed: () {
+                                          BlocProvider.of<Tarea3Bloc>(context)
+                                              .add(StartEvent());
+                                        },
+                                        child: Text('PLAY'),
+                                        color: Colors.green[500],
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ))
                         ],
                       ),
                     ),
